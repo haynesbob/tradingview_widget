@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .chart {
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div id="tradingview_1" class="chart"></div>
+    <div id="tradingview_2" class="chart"></div>
+    <div id="tradingview_3" class="chart"></div>
+    <div id="tradingview_4" class="chart"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+      var defaultOptions = {
+        "width": 480,
+        "height": 320,
+        "interval": "5",
+        "theme": "Dark",
+        "style": "1",
+        "locale": "zh_CN",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "withdateranges": true,
+        "allow_symbol_change": true,
+        "hide_top_toolbar": true,
+        "studies": [
+          "Volumn@tv-basicstudies",
+          "RSI@tv-basicstudies",
+        ],
+      }
+      var chartsList = [
+        {
+          "symbol": "BITMEX:XBTUSD",
+          "container_id": "tradingview_1"
+        },
+        {
+          "symbol": "BITMEX:ETHUSD",
+          "container_id": "tradingview_2"
+        },
+        {
+          "symbol": "BINANCE:BNBUSDT",
+          "container_id": "tradingview_3"
+        },
+      ]
+
+      chartsList.forEach(function (option) {
+        var newOption = Object.assign({}, defaultOptions, option)
+        new TradingView.widget(newOption)
+      })
+
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+</body>
+
+</html>
